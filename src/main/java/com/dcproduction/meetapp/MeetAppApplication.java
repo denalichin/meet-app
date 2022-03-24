@@ -31,15 +31,15 @@ public class MeetAppApplication implements CommandLineRunner{
 		System.out.println("inserting testing object into MONGO DB DIRECTORY...");
 
 		MeetingDB.deleteAll();
-		// List<User> tempUsers = new ArrayList<>();
-		ArrayList<String> tempUsers = new ArrayList<>();
+		List<User> tempUsers = new ArrayList();
+		// List<String> tempUsers = new ArrayList();
 
 		int temp_availability[] = { 1, 2, 3, 4, 5 };
 
-		// tempUsers.add(new User("Mark", "Caddy", temp_availability));
-		// tempUsers.add(new User("Bill", "Bobby", temp_availability));
-		tempUsers.add("bob");
-		tempUsers.add("mark caddy");
+		tempUsers.add(new User("Mark", "Caddy", temp_availability));
+		tempUsers.add(new User("Bill", "Bobby", temp_availability));
+		// tempUsers.add("bob");
+		// tempUsers.add("mark caddy");
 
 
 		Meeting testMeeting = new Meeting("99", "test meeting", "temporary_url", "pacific", "9:00 am", "9:00pm", LocalDate.parse("2022-01-01"), LocalDate.parse("2022-09-09"), tempUsers);

@@ -22,12 +22,12 @@ public class Meeting {
     private LocalDate endDate;
 
     // @DBRef
-    // private List<User> users;
-    private ArrayList<String> users;
+    private List<User> users;
+    // private List<String> users;
 
     //the constructor
     public Meeting(String id, String name, String url, String timezone, String startTime, 
-            String endTime, LocalDate startDate, LocalDate endDate, ArrayList<String> users) {
+            String endTime, LocalDate startDate, LocalDate endDate, List<User> users) {
     // super();
     this.id = id;
     this.name = name;
