@@ -1,7 +1,11 @@
 package com.dcproduction.meetapp;
 
-import com.dcproduction.meetapp.classes.GroceryItem;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.dcproduction.meetapp.classes.Meeting;
+import com.dcproduction.meetapp.classes.User;
 import com.dcproduction.meetapp.repositories.ItemRepository;
 import com.dcproduction.meetapp.repositories.MeetingRepository;
 
@@ -24,7 +28,29 @@ public class MeetAppApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 
-		MeetingDB.save(new Meeting("first_id", "String name", 99, "category"));
+		System.out.println("inserting testing object into MONGO DB DIRECTORY...");
+
+		MeetingDB.deleteAll();
+		// List<User> tempUsers = new ArrayList<>();
+		ArrayList<String> tempUsers = new ArrayList<>();
+
+		int temp_availability[] = { 1, 2, 3, 4, 5 };
+
+		// tempUsers.add(new User("Mark", "Caddy", temp_availability));
+		// tempUsers.add(new User("Bill", "Bobby", temp_availability));
+		tempUsers.add("bob");
+		tempUsers.add("mark caddy");
+
+
+		Meeting testMeeting = new Meeting("99", "test meeting", "temporary_url", "pacific", "9:00 am", "9:00pm", LocalDate.parse("2022-01-01"), LocalDate.parse("2022-09-09"), tempUsers);
+		MeetingDB.save(testMeeting);
+		System.out.println("FINISHED.");
+
+
+		// Rule 1: embed unless there is a compelling reason not to
+		// Rule 2: avoid JOINS if they can be avoided
+		// Rule 3: array should never grow without bound
+		// Rule 4: an object should not be embedded if it needs to be accessed individually
 
 		// System.out.println("Clearing db");
 		// Testeroni.deleteAll();

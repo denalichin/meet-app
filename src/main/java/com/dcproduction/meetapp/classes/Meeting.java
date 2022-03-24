@@ -1,6 +1,11 @@
 package com.dcproduction.meetapp.classes;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document("MeetingCluster") //@Document specifies the name of the collection in mongodb
@@ -9,18 +14,31 @@ public class Meeting {
     private String id;
 
     private String name;
-    private int quantity;
-    private String category;
-    
-    //the constructor
-    public Meeting(String id, String name, int quantity, String category) {
-        // super();
-        this.id = id;
-        this.name = name;
-        this.quantity = quantity;
-        this.category = category;
-    }
+    private String url;
+    private String timezone;
+    private String startTime;
+    private String endTime;
+    private LocalDate startDate;
+    private LocalDate endDate;
 
+    // @DBRef
+    // private List<User> users;
+    private ArrayList<String> users;
+
+    //the constructor
+    public Meeting(String id, String name, String url, String timezone, String startTime, 
+            String endTime, LocalDate startDate, LocalDate endDate, ArrayList<String> users) {
+    // super();
+    this.id = id;
+    this.name = name;
+    this.url = url;
+    this.timezone = timezone;
+    this.startTime = startTime;
+    this.endTime = endTime;
+    this.startDate = startDate;
+    this.endDate = endDate;
+    this.users = users;
+}
     public String getName() {
         return this.name;
     }
@@ -29,20 +47,59 @@ public class Meeting {
         this.name = name;
     }
 
-    public int getQuantity() {
-        return this.quantity;
+    public String getUrl() {
+        return this.url;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
-    public String getCategory() {
-        return this.category;
+    public String getTimezone() {
+        return this.timezone;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setTimezone(String timezone) {
+        this.timezone = timezone;
     }
 
+    public String getStartTime() {
+        return this.startTime;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getEndTime() {
+        return this.endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
+    public LocalDate getStartDate() {
+        return this.startDate;
+    }
+
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
+
+    public LocalDate getEndDate() {
+        return this.endDate;
+    }
+
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
+    }
+
+    // public List<User> getUsers() {
+    //     return this.users;
+    // }
+
+    // public void setUsers(List<User> users) {
+    //     this.users = users;
+    // }
 }

@@ -1,3 +1,5 @@
+//TEST CLASS
+
 package com.dcproduction.meetapp.classes;
 
 import org.springframework.data.annotation.Id;

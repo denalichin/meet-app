@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 //must be an interface
 //extends MongoRepository
+// @Repository;
 public interface MeetingRepository extends MongoRepository<Meeting, String> {
     // public Meeting getById(String id);
 
