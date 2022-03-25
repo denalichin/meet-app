@@ -95,11 +95,11 @@ public class Meeting {
         this.endDate = endDate;
     }
 
-    // public List<User> getUsers() {
-    //     return this.users;
-    // }
+    public List<User> getUsers() {
+        return this.users;
+    }
 
-    // public void setUsers(List<User> users) {
-    //     this.users = users;
-    // }
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
 }
