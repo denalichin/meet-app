@@ -3,6 +3,7 @@ package com.dcproduction.meetapp.services;
 import java.util.List;
 
 import com.dcproduction.meetapp.classes.Meeting;
+import com.dcproduction.meetapp.classes.User;
 import com.dcproduction.meetapp.repositories.MeetingRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,11 @@ public class MeetingService {
     public List<Meeting> getAllMeetings(){
         return meetingDB.findAll();
     }
-    public Meeting findMeeting(String name){
-        return meetingDB.findMeeting(name);
+    public Meeting findMeeting(String meetingName){
+        return meetingDB.findMeeting(meetingName);
     }
+
+    // public List<User> findUsers(String meetingName){
+    //     return meetingDB.findUsers(meetingName);
+    // }
 }
