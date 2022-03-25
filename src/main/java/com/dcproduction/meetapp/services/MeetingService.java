@@ -17,5 +17,7 @@ public class MeetingService {
     public List<Meeting> getAllMeetings(){
         return meetingDB.findAll();
     }
-    
+    public Meeting findMeeting(String name){
+        return meetingDB.findMeeting(name);
+    }
 }

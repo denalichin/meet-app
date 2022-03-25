@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 //creating the rest API. url commands call commands on the repository
-@RestController
 // @CrossOrigin("*")
+@RestController
 @RequestMapping("test/hello")
 public class MeetingController {
     
@@ -31,5 +31,11 @@ public class MeetingController {
         // return this.meetingDB.findAll();
     }
     
+    @GetMapping("/findmeeting")
+    public Meeting findMeeting() {
+        System.out.println("Finding meeting");
+        return service.findMeeting("test meeting");
+        // return this.meetingDB.findAll();
+    }
 
 }

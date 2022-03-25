@@ -19,7 +19,7 @@ public class MeetAppApplication implements CommandLineRunner{
 
 	@Autowired
     // ItemRepository Testeroni;
-	MeetingRepository MeetingDB;
+	MeetingRepository meetingDB;
 	public static void main(String[] args) {
 		SpringApplication.run(MeetAppApplication.class, args);
 	}
@@ -30,8 +30,8 @@ public class MeetAppApplication implements CommandLineRunner{
 
 		System.out.println("inserting testing object into MONGO DB DIRECTORY...");
 
-		MeetingDB.deleteAll();
-		List<User> tempUsers = new ArrayList();
+		meetingDB.deleteAll();
+		List<User> tempUsers = new ArrayList<User>();
 		// List<String> tempUsers = new ArrayList();
 
 		int temp_availability[] = { 1, 2, 3, 4, 5 };
@@ -43,7 +43,7 @@ public class MeetAppApplication implements CommandLineRunner{
 
 
 		Meeting testMeeting = new Meeting("99", "test meeting", "temporary_url", "pacific", "9:00 am", "9:00pm", LocalDate.parse("2022-01-01"), LocalDate.parse("2022-09-09"), tempUsers);
-		MeetingDB.save(testMeeting);
+		meetingDB.save(testMeeting);
 		System.out.println("FINISHED.");
 
 
