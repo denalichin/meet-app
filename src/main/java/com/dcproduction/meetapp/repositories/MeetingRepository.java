@@ -18,13 +18,12 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MeetingRepository extends MongoRepository<Meeting, String> {
 
-    @Query("{name:'?0'}")
+    // @Query("{name:'?0'}")
+    @Query(value="{ name : '?0'}", fields="{users : { password : 0}}")
     Meeting findMeeting(String meetingName); //we could name this function anything
     // public Meeting getById(String id);
    
-    // @Query(value="{name: '?0' }")
-    @Query(value="{ name : '?0'}", fields="{users : { password : 0}}")
-    //"{ user : { name : 1 } }")
+    @Query(value="{ name : '?0'}", fields="{users : { username : 1, availability: 1}}") //not being used for now
     String findUsers(String meetingName);
 
     //findById may return a null, while getById always returns an object, even if entry doesn't exist
